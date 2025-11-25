@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RHW — Modern Clothing</title>
+  <meta name="description" content="RHW — Contemporary clothing for every occasion.">
+  <style>
+    :root{
+      --accent:#1f8fa7; /* change to your brand color */
+      --dark:#0f1620;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#f7f9fb;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--dark);line-height:1.45}
+    header{background:linear-gradient(90deg, rgba(31,143,167,0.06), transparent);backdrop-filter:saturate(1.05);padding:18px 4%;position:sticky;top:0;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:18px;text-decoration:none;color:var(--dark);font-weight:600}
+    .cta{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{max-width:1200px;margin:36px auto;padding:28px 4%;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));padding:28px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(15,22,32,0.06)}
+    h1{font-size:clamp(28px,4vw,44px);margin:0 0 10px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .shop-btn{display:inline-block;background:var(--accent);color:white;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:700}
+
+    /* Product grid */
+    .products{max-width:1200px;margin:18px auto;padding:18px 4%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 6px 20px rgba(12,18,24,0.04);overflow:hidden}
+    .product-img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+    .product-title{font-weight:700;margin:10px 0 6px}
+    .price{color:var(--accent);font-weight:800}
+    .small{color:var(--muted);font-size:13px}
+    .grid-row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+    .btn{background:transparent;border:1px solid var(--accent);padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--accent);font-weight:700}
+
+    /* About & contact */
+    .section{max-width:1000px;margin:28px auto;padding:18px 4%}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    footer{padding:28px 4%;background:transparent;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav a{display:none}
+    }
+
+    /* tiny interactions */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);background:#fff}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(8,10,12,0.45);z-index:200}
+    .modal.open{display:flex}
+    .modal-card{width:90%;max-width:680px;background:white;border-radius:12px;padding:18px}
+    .close{background:#eee;border-radius:8px;padding:6px 8px;border:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">RHW</div>
+        <div>
+          <div style="font-weight:800">RHW</div>
+          <div style="font-size:13px;color:var(--muted)">Refined • Heritage • Wear</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#shop">Shop</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <h1>RHW — Crafted for the modern moment</h1>
+        <p class="lead">Minimal silhouettes, timeless fabrics. Our seasonal drops balance comfort and statement. Free shipping on orders above ₹2,000.</p>
+        <a class="shop-btn" href="#collections">Explore Collections</a>
+
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <div class="pill">New arrivals</div>
+          <div class="pill">Sustainable fabric</div>
+          <div class="pill">Limited editions</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="RHW hero" style="width:100%;height:260px;object-fit:cover;border-radius:12px;box-shadow:0 10px 30px rgba(31,143,167,0.08)">
+        <div style="display:flex;gap:12px">
+          <img src="https://images.unsplash.com/photo-1520975918938-cc0c4746f9b7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="RHW" style="width:50%;height:120px;object-fit:cover;border-radius:10px">
+          <img src="https://images.unsplash.com/photo-1526178611970-d65d6f5c8e49?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="RHW" style="width:50%;height:120px;object-fit:cover;border-radius:10px">
+        </div>
+      </div>
+    </section>
+
+    <section id="collections" class="products">
+      <!-- Repeat product cards. Replace images and details with your products -->
+      <article class="card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Classic Shirt">
+        <div class="product-title">The Classic Shirt</div>
+        <div class="small">Lightweight cotton — Unisex</div>
+        <div class="grid-row" style="margin-top:12px">
+          <div class="price">₹1,299</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" onclick="openModal('The Classic Shirt', '₹1,299', 'Comfort-driven classic shirt perfect for daily wear.', this)">Quick view</button>
+            <button class="btn" onclick="addToCart('The Classic Shirt',1299)">Add</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1520975918938-cc0c4746f9b7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Everyday Tee">
+        <div class="product-title">Everyday Tee</div>
+        <div class="small">Organic cotton — Crew neck</div>
+        <div class="grid-row" style="margin-top:12px">
+          <div class="price">₹899</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" onclick="openModal('Everyday Tee', '₹899', 'Soft, breathable and made responsibly.', this)">Quick view</button>
+            <button class="btn" onclick="addToCart('Everyday Tee',899)">Add</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="product-img" src="https://images.unsplash.com/photo-1526178611970-d65d6f5c8e49?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Relaxed Pants">
+        <div class="product-title">Relaxed Pants</div>
+        <div class="small">Tailored relaxed fit</div>
+        <div class="grid-row" style="margin-top:12px">
+          <div class="price">₹1,699</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" onclick="openModal('Relaxed Pants','₹1,699','Easy-fit pants with breathable fabric.',this)">Quick view</button>
+            <button class="btn" onclick="addToCart('Relaxed Pants',1699)">Add</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add more products as needed -->
+    </section>
+
+    <section id="about" class="section">
+      <div class="two-col">
+        <div>
+          <h2>About RHW</h2>
+          <p class="small">RHW grew from a love of simple, durable clothing. We focus on thoughtful design, sustainable materials, and local craftsmanship. Each piece is designed to be worn and loved for years.</p>
+          <ul class="small" style="margin-top:12px">
+            <li>Ethically sourced fabrics</li>
+            <li>Small-batch manufacturing</li>
+            <li>Neutral, timeless colors</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why choose us</h3>
+          <p class="small">We keep collections small to focus on quality. We believe good clothing should be accessible and responsible.</p>
+          <div style="margin-top:12px">
+            <a class="btn" href="#shop">View Shop</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background:transparent">
+      <h3>Contact & wholesale</h3>
+      <div class="two-col">
+        <form onsubmit="event.preventDefault(); alert('Message sent! (demo)');" style="display:flex;flex-direction:column;gap:10px">
+          <input placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #e6e9ee">
+          <input type="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid #e6e9ee">
+          <textarea placeholder="Message" rows="4" style="padding:10px;border-radius:8px;border:1px solid #e6e9ee"></textarea>
+          <button class="shop-btn" type="submit">Send message</button>
+        </form>
+        <div>
+          <p class="small">Wholesale & collaboration inquiries: <strong>collab@rhwbrand.com</strong></p>
+          <p class="small">Store: Mumbai, India (Demo address) </p>
+          <div style="margin-top:12px" class="small">Follow us on social: @rhw_brand</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:8px 4%">
+      <div>
+        <div style="font-weight:800">RHW</div>
+        <div class="small">© RHW — All rights reserved</div>
+      </div>
+      <div class="small">Designed with care • Made responsibly</div>
+    </div>
+  </footer>
+
+  <!-- Modal (quick view) and small JS -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:800" id="modal-title">Product</div>
+        <button class="close" onclick="closeModal()">✕</button>
+      </div>
+      <div style="margin-top:12px" id="modal-desc">Product details</div>
+      <div style="margin-top:16px;display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn" onclick="closeModal()">Close</button>
+        <button class="shop-btn" id="modal-add">Add to cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple demo JS for quick interactions — replace with real logic when integrating a backend
+    let cart = [];
+    function openModal(title, price, desc, el){
+      document.getElementById('modal-title').innerText = title + ' — ' + price;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal-add').onclick = function(){ addToCart(title, parseInt(price.replace(/[^0-9]/g,''))); closeModal(); }
+    }
+    function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+    function addToCart(name, price){ cart.push({name, price}); alert(name + ' added to cart (demo)'); console.log('cart',cart); }
+
+    // Small: clicking the logo scrolls home
+    document.querySelector('.logo').addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+</body>
+</html>
